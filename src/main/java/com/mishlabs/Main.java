@@ -14,7 +14,7 @@ public class Main
             String v = q.getVersion();
             System.out.println("using q version " +  v);
 
-            q.connect();
+            q.connect(null);
 
             q.worker("channel1", new Worker()
             {
@@ -48,7 +48,7 @@ public class Main
             q.post("channel1", "java 15");
             q.postAt("channel1", "java 16", System.currentTimeMillis() + 3 * 1000);
 
-            Thread.sleep(7000);
+            Thread.sleep(30000);
 
             q.disconnect();
             System.out.println("done");

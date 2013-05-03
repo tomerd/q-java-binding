@@ -6,7 +6,7 @@ public class Q
 {
     private native String native_version();
 
-    private native long native_connect();
+    private native long native_connect(String config);
 
     private native void native_disconnect(long q);
 
@@ -33,10 +33,10 @@ public class Q
         return this.native_version();
     }
 
-    public void connect() throws Exception
+    public void connect(String config) throws Exception
     {
         if (0 != qp) throw new Exception("Q already started");
-        qp = this.native_connect();
+        qp = this.native_connect(config);
     }
 
     public void disconnect() throws Exception
