@@ -14,7 +14,7 @@ public class Main
             String v = q.getVersion();
             System.out.println("using q version " +  v);
 
-            q.connect(null);
+            q.connect("{ \"driver\": \"redis\", \"host\": \"127.0.0.1\" }");
 
             q.worker("channel1", new Worker()
             {
@@ -24,6 +24,7 @@ public class Main
                 }
             });
 
+            /*
             q.worker("channel1", new Worker()
             {
                 public void perform(String data)
@@ -47,8 +48,9 @@ public class Main
             q.postAt("channel1", "java 14", System.currentTimeMillis() + 3 * 1000);
             q.post("channel1", "java 15");
             q.postAt("channel1", "java 16", System.currentTimeMillis() + 3 * 1000);
+            */
 
-            Thread.sleep(30000);
+            Thread.sleep(60*1000);
 
             q.disconnect();
             System.out.println("done");
