@@ -18,6 +18,7 @@ public class Q
 
     static
     {
+        // FIXME!
         //System.loadLibrary("libq");
         System.load("/usr/local/lib/libq.dylib");
     }
