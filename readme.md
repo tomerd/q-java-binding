@@ -14,7 +14,7 @@ programing languages. and so, while during development you will most likely run 
 you may choose a redis back-end on your test environment and running dedicated servers backed by amazon SQS on production. q was designed to
 give you this freedom and to allow you to write the code once and run it anywhere.
 
-https://github.com/tomerd
+https://github.com/tomerd/q
 
 ### q bindings for java
 
@@ -39,7 +39,7 @@ https://github.com/tomerd
     q.post("channel1", "java 5");
     q.postAt("channel1", "java 6", System.currentTimeMillis() + 3 * 1000);
 
-    Thread.sleep(5*1000);
+    Thread.sleep(7*1000);
 
     q.disconnect();
     System.out.println("done");
