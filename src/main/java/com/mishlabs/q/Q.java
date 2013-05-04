@@ -19,7 +19,7 @@ public class Q
     static
     {
         //System.loadLibrary("libq");
-        System.load("/Users/tomer/Library/Developer/Xcode/DerivedData/q-fzhotuuyharzrhdmglkighvkrccd/Build/Products/Debug/libq.dylib");
+        System.load("/usr/local/lib/libq.dylib");
     }
 
     private long qp = 0;
