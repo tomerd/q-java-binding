@@ -36,7 +36,7 @@ public class Q
 
     public void connect(String config) throws Exception
     {
-        if (0 != qp) throw new Exception("Q already started");
+        if (0 != qp) throw new IllegalStateException("Q already connected");
         qp = this.native_connect(config);
     }
 
@@ -59,17 +59,17 @@ public class Q
 
     public String postAt(String queue, String data, long at) throws Exception
     {
-        if (0 == qp) throw new Exception("Q not started");
-        if (null == queue) throw new Exception("invalid arguments");
-        if (null == data) throw new Exception("invalid arguments");
+        if (0 == qp) throw new IllegalStateException("Q disconnected");
+        if (null == queue) throw new IllegalArgumentException();
+        if (null == data) throw new IllegalArgumentException();
         return this.native_post(qp, queue, data, at/1000);
     }
 
     public void worker(String queue, final Worker worker) throws Exception
     {
-        if (0 == qp) throw new Exception("Q not started");
-        if (null == queue) throw new Exception("invalid arguments");
-        if (null == worker) throw new Exception("invalid arguments");
+        if (0 == qp) throw new IllegalStateException("Q disconnected");
+        if (null == queue) throw new IllegalArgumentException();
+        if (null == worker) throw new IllegalArgumentException();
         this.native_worker(qp, queue, new NativeWorker()
         {
             public void perform(String data)
@@ -81,9 +81,9 @@ public class Q
 
     public void observer(String queue, final Observer observer) throws Exception
     {
-        if (0 == qp) throw new Exception("Q not started");
-        if (null == queue) throw new Exception("invalid arguments");
-        if (null == observer) throw new Exception("invalid arguments");
+        if (0 == qp) throw new IllegalStateException("Q disconnected");
+        if (null == queue) throw new IllegalArgumentException();
+        if (null == observer) throw new IllegalArgumentException();
         this.native_observer(qp, queue, new NativeObserver()
         {
             public void perform(String data)
