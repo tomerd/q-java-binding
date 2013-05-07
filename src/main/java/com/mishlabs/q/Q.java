@@ -40,15 +40,16 @@ public class Q
         return this.native_version();
     }
 
-    public void connect() throws Exception
+    public boolean connect() throws Exception
     {
-        this.connect(null);
+        return this.connect(null);
     }
 
-    public void connect(String config) throws Exception
+    public boolean connect(String config) throws Exception
     {
         if (0 != pq) throw new IllegalStateException("Q already connected");
         pq = this.native_connect(config);
+        return (0 != pq);
     }
 
     public void disconnect() throws Exception
