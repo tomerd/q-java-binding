@@ -134,7 +134,7 @@ public abstract class AbstractTests
             Assert.assertEquals("expected 1", 1, receiver.received);
 
             now = System.currentTimeMillis();
-            q.update("test2",now+4*1000);
+            q.reschedule("test2", now+4*1000);
 
             Thread.sleep(2*1000);
             Assert.assertEquals("expected 1", 1, receiver.received);
@@ -180,7 +180,7 @@ public abstract class AbstractTests
             Thread.sleep(2*1000);
             Assert.assertEquals("expected 0", 0, receiver.received);
 
-            q.remove("test1");
+            q.cancel("test1");
 
             Thread.sleep(3*1000);
             Assert.assertEquals("expected 0", 0, receiver.received);

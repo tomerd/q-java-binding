@@ -12,9 +12,9 @@ public class Q
 
     private native String native_post(long q, String queue, String uid, String data, long run_at);
 
-    private native boolean native_update(long q, String uid, long run_at);
+    private native boolean native_reschedule(long q, String uid, long run_at);
 
-    private native boolean native_remove(long q, String uid);
+    private native boolean native_cancel(long q, String uid);
 
     private native void native_worker(long q, String queue, NativeWorker worker);
 
@@ -91,18 +91,18 @@ public class Q
         return this.native_post(pq, queue, uid, data, run_at/1000);
     }
 
-    public boolean update(String uid, long run_at) throws Exception
+    public boolean reschedule(String uid, long run_at) throws Exception
     {
         if (0 == pq) throw new IllegalStateException("Q disconnected");
         if (null == uid) throw new IllegalArgumentException();
-        return this.native_update(pq, uid, run_at/1000);
+        return this.native_reschedule(pq, uid, run_at/1000);
     }
 
-    public boolean remove(String uid) throws Exception
+    public boolean cancel(String uid) throws Exception
     {
         if (0 == pq) throw new IllegalStateException("Q disconnected");
         if (null == uid) throw new IllegalArgumentException();
-        return this.native_remove(pq, uid);
+        return this.native_cancel(pq, uid);
     }
 
     public void worker(String queue, final Worker worker) throws Exception
