@@ -25,8 +25,8 @@ public class Q
     static
     {
         // FIXME!
-        //System.loadLibrary("libq");
-        System.load("/usr/local/lib/libq.dylib");
+        System.loadLibrary("libq-1.0");
+        //System.load("/usr/local/lib/libq.dylib");
     }
 
     private long pq = 0;
