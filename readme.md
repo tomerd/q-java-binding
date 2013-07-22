@@ -19,12 +19,11 @@ see more about the core library at https://github.com/tomerd/q
 
 ##### Important
 
-* qlib does not build with java support by default. to enable it, build it with the "--with-java" flag:
+* qlib does not build with java support by default. to enable it, build it with the "--with-java" flag
+
 
 	aclocal && autoreconf -i && automake
-	
 	./configure --with-java
-	
 	make && make install
 
 * make sure to set java.library.path to where qlib is installed (normally /usr/local/lib). otherwise Java will not be able to load the q library.
