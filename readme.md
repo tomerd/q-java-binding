@@ -26,7 +26,7 @@ see more about the core library at https://github.com/tomerd/q
 		./configure --with-java
 		make && make install
 
-* make sure to set java.library.path to where qlib is installed (normally /usr/local/lib). otherwise Java will not be able to load the q library.
+* make sure to set java.library.path to where qlib is installed (normally /usr/local/lib). otherwise the JVM will not be able to find the q library.
 
 ##### Example
 
