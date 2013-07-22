@@ -11,7 +11,7 @@ q is a queueing toolkit. the idea is to provide a universal application programm
 application development lifecycle without the need to commit to a specific queueing technology or to set up complex queueing environments 
 where such are not required. you can think of it as an ORM for queueing. 
 
-q runs on multiple back-ends and has bindings to many programing languages. and so, while during development you will most likely run it in-memory and let it clear when the process dies, you may choose a redis back-end on your test environment and running dedicated servers backed by rabbitMQ, amazon SQS or some other enterprise queueing system on production. 
+q runs on multiple back-ends and has bindings to many programing languages. and so, while during development you will most likely run it in-memory and let it clear when the process dies, you may choose a redis back-end on your test environment and running dedicated servers backed by rabbitMQ, amazon SQS or some other enterprise queueing system on production.
 
 see more about the core library at https://github.com/tomerd/q
 
@@ -49,7 +49,7 @@ worker has completed the job successfully.
 
 * qlib does not build with the JNI headers by default. to enable Java support you must build it with the "--with-java" flag
 
-		aclocal && autoreconf -i && automake
+		autoreconf -i && automake
 		./configure --with-java
 		make && make install
 
