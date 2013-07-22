@@ -1,6 +1,7 @@
 package com.mishlabs.q;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Q
 {
@@ -20,13 +21,13 @@ public class Q
 
     private native void native_observer(long q, String queue, NativeObserver observer);
 
-    private native void native_flush(long q);
+    private native void native_drop(long q);
 
     static
     {
-        // FIXME!
-        System.loadLibrary("libq-1.0");
-        //System.load("/usr/local/lib/libq.dylib");
+        // IMPORTANT: make sure to set java.library.path to where qlib is installed (normally /usr/local/lib)
+        // otherwise Java will not be able to load the q library.
+        System.loadLibrary("q-1.0");
     }
 
     private long pq = 0;
@@ -134,11 +135,11 @@ public class Q
         });
     }
 
-    // careful, flushes the queue!
-    public void flush()
+    // careful, dropes all queues!
+    public void drop()
     {
         if (0 == pq) throw new IllegalStateException("Q disconnected");
-        this.native_flush(pq);
+        this.native_drop(pq);
     }
 
 }

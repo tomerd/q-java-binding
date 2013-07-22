@@ -1,6 +1,6 @@
 package com.mishlabs.q.test;
 
-public class TransientTests extends AbstractTests
+public class LmdbTests extends AbstractTests
 {
     String connection_string = null;
 }

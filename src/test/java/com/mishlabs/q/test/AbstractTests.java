@@ -19,7 +19,7 @@ public abstract class AbstractTests
             System.out.println("using q version " +  q.getVersion());
 
             q.connect(connection_string);
-            q.flush();
+            q.drop();
 
             TestWorker receiver = new TestWorker()
             {
@@ -65,7 +65,7 @@ public abstract class AbstractTests
             System.out.println("using q version " +  q.getVersion());
 
             q.connect(connection_string);
-            q.flush();
+            q.drop();
 
             TestWorker receiver = new TestWorker()
             {
@@ -114,7 +114,7 @@ public abstract class AbstractTests
             System.out.println("using q version " +  q.getVersion());
 
             q.connect(connection_string);
-            q.flush();
+            q.drop();
 
             TestWorker receiver = new TestWorker()
             {
@@ -162,7 +162,7 @@ public abstract class AbstractTests
             System.out.println("using q version " +  q.getVersion());
 
             q.connect(connection_string);
-            q.flush();
+            q.drop();
 
             TestWorker receiver = new TestWorker()
             {

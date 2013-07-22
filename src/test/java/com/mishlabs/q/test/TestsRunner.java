@@ -8,7 +8,7 @@ public class TestsRunner
 {
     public static void main(String[] args)
     {
-        Result result = JUnitCore.runClasses(RedisTests.class, TransientTests.class);
+        Result result = JUnitCore.runClasses(LmdbTests.class, RedisTests.class);
         for (Failure failure : result.getFailures())
         {
             System.out.println(failure.toString());
