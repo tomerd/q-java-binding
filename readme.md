@@ -17,7 +17,7 @@ see more about the core library at https://github.com/tomerd/q
 
 ### q bindings for java
 
-##### Important
+##### important
 
 
 * qlib does not build with the JNI headers by default. to enable Java support you must build it with the "--with-java" flag
@@ -28,7 +28,7 @@ see more about the core library at https://github.com/tomerd/q
 
 * make sure to set java.library.path to where qlib is installed (normally /usr/local/lib). otherwise the JVM will not be able to find the q library.
 
-##### Usage Example
+##### usage example
 
 	Q q = new Q();
     String v = q.getVersion();
