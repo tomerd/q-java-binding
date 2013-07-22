@@ -25,13 +25,13 @@ q bindings for java uses JNI to bind to q's native API. q is represented by the 
 
 * *disconnect:* disconnect from the library. no further calls can be made after this.
 
-* *post(queue, data):*/ posts a job to a named queue (aka channel).
+* *post(queue, data):* posts a job to a named queue (aka channel).
 
-* *post(queue, uid, data):*/ posts a uniquely identified job to a named queue (aka channel). useful if you are planning to update the job.
+* *post(queue, uid, data):* posts a uniquely identified job to a named queue (aka channel). useful if you are planning to update the job.
 
-* *postAt(queue, data, run_at):*/ posts a job to a named queue (aka channel) in a future date.
+* *postAt(queue, data, run_at):* posts a job to a named queue (aka channel) in a future date.
 
-* *postAt(queue, uid, data, run_at):*/ posts a uniquely identified job to a named queue (aka channel) in a future date. useful if you are planning to rescheduling the job.
+* *postAt(queue, uid, data, run_at):* posts a uniquely identified job to a named queue (aka channel) in a future date. useful if you are planning to rescheduling the job.
 	
 
 * *reschedule(uid, run_at):* reschedule the job identified by uid to a new target date.
