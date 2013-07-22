@@ -17,8 +17,35 @@ see more about the core library at https://github.com/tomerd/q
 
 ### q bindings for java
 
-##### important
+q bindings for java uses JNI to bind to q's native API. q is represented by the Q class which exposes a simple API:
 
+* *getVersion():* returns the version of q
+
+* *connect(config):* connects to the library and initialized a connection to the backend specified by the config param. see further documentation on backends at the core library.
+
+* *disconnect:* disconnect from the library. no further calls can be made after this.
+
+* *post(queue, data):*/ posts a job to a named queue (aka channel).
+
+* *post(queue, uid, data):*/ posts a uniquely identified job to a named queue (aka channel). useful if you are planning to update the job.
+
+* *postAt(queue, data, run_at):*/ posts a job to a named queue (aka channel) in a future date.
+
+* *postAt(queue, uid, data, run_at):*/ posts a uniquely identified job to a named queue (aka channel) in a future date. useful if you are planning to rescheduling the job.
+	
+
+* *reschedule(uid, run_at):* reschedule the job identified by uid to a new target date.
+
+* *cancel(uid):* cancel a scheduled jobs.
+
+* *worker(queue, Worker):* register a worker for a named queue (aka channel). a worker is implemented by implementing the Worker interface which includes a single "perform" method. the worker will start receiving jobs immediately.
+
+* *observer(queue, Observer):* register an observer for a named queue (aka channel). an observer is implemented by implementing the Observer interface which includes a single "perform" method. the observer will start receiving jobs immediately. the difference between an observer and a worker is that the observer is passive in nature and as such is notified only after a
+worker has completed the job successfully.
+
+* *drop:* careful, drops all queues! useful in development scenarios when you need to flush the entire queue system.
+
+##### important
 
 * qlib does not build with the JNI headers by default. to enable Java support you must build it with the "--with-java" flag
 
